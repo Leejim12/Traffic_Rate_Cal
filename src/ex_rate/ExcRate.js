@@ -1,5 +1,4 @@
 import './ExcRate.css';
-import useState from 'react'
 
 // 구글 환율계산기 참고
 // '환율'은 excRate로 명명
@@ -16,12 +15,9 @@ const crcOptions = [
 const SelectBox = (props) => {
 	return (
 		<select>
+			{/* defaultValue 적용 필요 */}
 			{props.options.map((option) => (
-				<option
-					value={option.value}
-					// defaultValue 적용안됨
-					defaultValue={props.defaultValue === option.value}
-				>
+				<option value={option.value}>
 					{option.name}
 				</option>
 			))}
@@ -33,32 +29,36 @@ function ExcRate() {
 
 	return (
 		<>
-			환율계산기
 			<div className='excRateConv'>
-				<div className='mainCrcN'>
-					기준 국가 및 통화 선택
-					<SelectBox options={crcOptions} defaultValue="KRW"></SelectBox>
-				</div>
-				<div className='amount_before'>
-					계산 전 금액 입력 받기 - 단위 표시
-					<input type='text' />
-				</div>
-				<div>
-					환전 기호
-				</div>
+				환율계산기
+				<form>
+					<div className='mainCrcN'>
+						{/* 기준 국가 및 통화 선택 */}
+						<SelectBox options={crcOptions}></SelectBox>
+					</div>
+					<div className='amount_before'>
+						{/* 계산 전 금액 입력 받기 - 단위 표시 */}
+						{/* 텍스트 타입으로 숫자만 입력받게 하기 */}
+						<input type="text" />
+					</div>
+					<div className='operator'>
+						<input type='submit' value='계산'/>
+					</div>
+				</form>
 				<div className='excCrcN'>
-					교환 국가 및 통화 선택
-					<SelectBox options={crcOptions} defaultValue="USD"></SelectBox>
+					{/* 교환 국가 및 통화 선택 */}
+					<SelectBox options={crcOptions}></SelectBox>
 				</div>
 				<div className='amount_after'>
 					{/* onChange */}
-					계산 후 금액 자동 출력 - 단위 표시
-					<input type='text' />
+					{/* 계산 후 금액 자동 출력 - 단위 표시 */}
+					{/* 계산결과 출력만 하도록 만들기 */}
+					<input type='text' placeholder='자동출력'/>
 				</div>
 			</div>
-			환율그래프
+			{/* 모바일에서는 아래로 가도록 함수 적용 필요 */}
 			<div className='excRateGraph'>
-
+				환율그래프 위치
 			</div>
 		</>
 	);
