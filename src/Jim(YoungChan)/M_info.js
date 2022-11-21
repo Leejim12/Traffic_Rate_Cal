@@ -1,15 +1,13 @@
 import {useState,useEffect,useRef} from 'react';
 
 function MoneyInfo(probs){
+  
   // 01. url 데이터 가져와서 myinfo에 저장하기.
   //   -1. moneyinfo : json 데이터
   //   -2. myinfo : key,value로 가져 온 배열
   //   -3. key : 원본 데이터의 키
   //   -4. keys : 내가 지정할 키 명.
-
     const moneyinfo =probs;
-    let data = {};
-    console.log("data" + data)
     let myinfo = {};
     const key = ['aplyBgnDt','cntySgn','currSgn','fxrt','mtryUtNm'];
     const keys = {
@@ -20,12 +18,44 @@ function MoneyInfo(probs){
       'mtryUtNm':'상세'
     }
 
-  
+    for(let k of key){
+      myinfo[keys[k]] = moneyinfo[k];
+    }
+    console.log(myinfo);
+
+  // 02. 화면에 출력. (to JSX)
+  let lis = [];
+  for(let[k,v] of Object.entries(myinfo)){
+    lis.push(
+      <li key = {myinfo} className = 'infoLi'>
+        <span className = 'infoSpan1'>{k}</span>  
+        <span className = 'infoSpan2'>{v}</span>
+      </li>
+    )
+  }
+
+   useEffect(()=>{
+
+   },[]);
   
   ///////////////////////////////////////////////////////
   // ▼ 기본 설정으로 만들어둔 코드들
+  const getXMLfromAPI = async () => {
+    
+    // 테스트를 위해, 일단은 날짜 데이터 고정으로 사용
+    const reqURL = 'https://apis.data.go.kr/1220000/retrieveTrifFxrtInfo/getRetrieveTrifFxrtInfo?aplyBgnDt=20221113&weekFxrtTpcd=2&serviceKey=fRjAj4dMQ8Rb3Uu5c3MFAz2i8tLzKvPTSPC%2Bb71g%2F7eEpLL9H2IgE%2FbuaO9AU1%2BXyTKrE%2FKlRYn0qeiZB%2B5cmw%3D%3D';
 
-  // 01. xml을 json으로 변환해주는 xmlToJson함수 선언
+	// async와 await을 통해 바로 XML을 JSON으로 변환
+    const response = await fetch(reqURL);
+    const xmlString = await response.text();
+    var XmlNode = new DOMParser().parseFromString(xmlString, 'text/xml');
+    console.log(xmlToJson(XmlNode));
+  };
+
+  //함수호출
+  getXMLfromAPI();
+
+  // xml을 json으로 변환해주는 xmlToJson함수 선언
   function xmlToJson(xml) {
     // Create the return object
     var obj = {};
@@ -72,43 +102,15 @@ function MoneyInfo(probs){
     return obj;
   }
 
-  // 02. url 받아와서 json 변환
-  const getXMLfromAPI = async () => {
-    // 테스트를 위해, 일단은 날짜 데이터 고정으로 사용
-    const date = "20221013"
-    const reqURL = 'https://apis.data.go.kr/1220000/retrieveTrifFxrtInfo/getRetrieveTrifFxrtInfo?aplyBgnDt='+date+'&weekFxrtTpcd=2&serviceKey=fRjAj4dMQ8Rb3Uu5c3MFAz2i8tLzKvPTSPC%2Bb71g%2F7eEpLL9H2IgE%2FbuaO9AU1%2BXyTKrE%2FKlRYn0qeiZB%2B5cmw%3D%3D';
-
-	// async와 await을 통해 바로 XML을 JSON으로 변환
-    const response = await fetch(reqURL);
-    const xmlString = await response.text();
-    var XmlNode = new DOMParser().parseFromString(xmlString, 'text/xml');
-    // 얘가 찐 데이터 ( tempdata )
-    const tempdata = xmlToJson(XmlNode).response.body.items.item;
-    data = tempdata;
-    console.log('data',data);
-  };
-  //함수호출
-  getXMLfromAPI();
-  for(let k of key){
-    myinfo[keys[k]] = data[k];
-  }
-  console.log('myinfo',myinfo);
-  console.log("data",data);
-
-
-
- useEffect(()=>{
-
- },[]);
-
-  ///////////////////////////////////////////////////////
 
     return(
       <>
         <h1> 데이터 연동 Test </h1>
-        <div>{data}</div>
+        <div>{lis}</div>
       </>
     );
 }
 
 export default MoneyInfo;
+
+  
