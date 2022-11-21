@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>contact us 페이지</title>
+<link rel="stylesheet" href="contact.css">
+<script type="text/javascript" src="contact.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <h3> CONTACT US</h3>
+        <img src="http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg" class = "contactusimg">
+
+    <div class = "contactform">
+        <div class = "namebox">     
+            <label for="floatingInput">이름:</label><br/>
+            <input type="name" class="full-name" placeholder= "홍길동">        
+            <br/>
+            <br/>
+        </div>
+    
+    <div class = "email">
+        <label for="floatingInputValue">이메일:</label>
+        <form class="form-floating">
+            <input type="email" class="form-email" placeholder="email@example.com">
+        </form> <br/>
+    </div>
+    
+<div class = "helpoptions">    
+    <div class="input-group mb-7">
+            <label class="help" > 어떤 도움이 필요하신가요?</label> <br/>
+            <select class="form-options" id="inputGroupSelect01 ">
+                <option selected> 옵션 선택 </option>
+                <option value="1"> 카테고리1 </option>
+                <option value="2"> 카테고리2 </option>
+                <option value="3"> 카테고리3 </option>
+                <option value="4"> 카테고리4 </option>
+                <option value="5"> 카테고리 5</option>
+            </select> 
+        </div> <br/>
+    </div>
+
+    <div class="detailtext">
+        <label for="exampleFormControlTextarea1" class="form-label"> 상세 내용: </label> <br/>
+        <textarea class="form-detail" id="exampleFormControlTextarea1" placeholder="궁금한 점이나 문제점에 대해 상세히 적어주세요."></textarea>
+      </div>
+
+    <div class = "file-upload">
+        <div class="mb-3">
+            <label for="formFileMultiple" class="form-label"></label>
+            <input class="form-control" type="file" id="formFileMultiple" multiple>
+            </div>    
+
+        </div> <br/>
+
+    <div class = "mybtn">
+        <button type="button" class="btn btn-warning" id = "submitbtn">제출하기</button>
+    </div>
+   
+    </div>
+    </div>
+</body>
+
+</html>
