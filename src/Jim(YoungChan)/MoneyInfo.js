@@ -8,7 +8,7 @@ function MoneyInfo(probs){
   //   -4. keys : 내가 지정할 키 명.
 
     const moneyinfo =probs;
-    let data = {};
+    let data = [];
     console.log("data" + data)
     let myinfo = {};
     const key = ['aplyBgnDt','cntySgn','currSgn','fxrt','mtryUtNm'];
@@ -82,20 +82,27 @@ function MoneyInfo(probs){
     const response = await fetch(reqURL);
     const xmlString = await response.text();
     var XmlNode = new DOMParser().parseFromString(xmlString, 'text/xml');
+
     // 얘가 찐 데이터 ( tempdata )
+    console.log(xmlToJson(XmlNode))
     const tempdata = xmlToJson(XmlNode).response.body.items.item;
-    data = tempdata;
-    console.log('data',data);
+    console.log(tempdata);
+ 
+    
+    for(let i = 0;i<=57;i++){
+        data.push(tempdata[i]);
+      }
+      console.log('data',data);
   };
+
   //함수호출
   getXMLfromAPI();
+  console.log("After",data);
+  console.log(getXMLfromAPI);
   for(let k of key){
     myinfo[keys[k]] = data[k];
   }
-  console.log('myinfo',myinfo);
-  console.log("data",data);
-
-
+  console.log("dat aaa",data);
 
  useEffect(()=>{
 
@@ -106,7 +113,7 @@ function MoneyInfo(probs){
     return(
       <>
         <h1> 데이터 연동 Test </h1>
-        <div>{data}</div>
+        {/* <div>{data}</div> */}
       </>
     );
 }
