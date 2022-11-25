@@ -1,6 +1,6 @@
 import MyAside from "./MyAside";
 import MyMain from "./MyMain";
-import "../styles/MyAsMain.css";
+import "./MyAsMain.css";
 function MyAsMain() {
   return (
     <div class="main-wrapper">

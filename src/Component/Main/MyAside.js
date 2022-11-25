@@ -1,4 +1,5 @@
-import "../styles/MyAside.css";
+import "./MyAside.css"
+
 function MyAside() {
   return (
     <div className="aside-Wrapper">
