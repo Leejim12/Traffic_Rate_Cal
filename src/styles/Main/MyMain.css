@@ -1,0 +1,14 @@
+.main-text {
+  border-radius: 15px;
+  margin: 20px;
+  padding: 10px;
+}
+
+main {
+  background-color: rgb(91, 155, 213);
+  width: 200vh;
+}
+
+main > div {
+  background-color: rgb(231, 230, 230);
+}

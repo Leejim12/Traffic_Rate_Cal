@@ -4,7 +4,15 @@ import{Link} from 'react-router-dom';
 
 function ShowMoney(){
 //   // ▼ 기본 설정으로 만들어둔 코드들
-
+// 2자리 수 월 반환
+function findMonth(a){
+    let result;
+    if(a.getMonth+1<10){
+      result = '0' + (a.getMonth+1)
+    }else{
+      result = (a.getMonth+1)
+    }return result
+}
 // 01. xml을 json으로 변환해주는 xmlToJson함수 선언
   function xmlToJson(xml) {
     // Create the return object
@@ -71,13 +79,24 @@ const refDateIn = useRef() ;
   }
 
 useEffect(()=>{
-  const yesterday = new Date();
-  yesterday.setDate(new Date().getDate - 1);
-  let d = yesterday.toISOString().substring(0, 10).replaceAll('-','');
+  const today = new Date();
+  // yesterday.setDate(new Date().getDate - 1);
+  const yr = today.getFullYear();
+  const month = findMonth(today.getMonth);
+  console.log(month);
+  // const month = (today) =>{
+  //   if(today.getMonth + 1<10){
+  //     month = '0' + (today.getMonth+1)
+  //   }else{
+  //     month = (today.getMonth+1);
+  //   }
+  // }
 
-  setViewDay(d);
+  // console.log(month)
+  //let d = yesterday.toISOString().substring(0, 10).replaceAll('-','');
 
-  getMoneyDate(d);
+  // setViewDay(d);
+  // getMoneyDate(d);
 },[]);
 
 useEffect(() => {
@@ -111,7 +130,7 @@ const handleChange = (e) => {
 
 return (
   <>
-    <h1>박스오피스 ({viewDayF}일자)</h1> 
+    <h1>환율 데이터 ({viewDayF}일자)</h1> 
     <form>
     <input type="date" name="dateIn" ref={refDateIn} onChange={handleChange}/>
     </form>
