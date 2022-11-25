@@ -1,5 +1,4 @@
-// import "./styles/MyHeader.css";
-import ".../styles/MyHeader.css";
+import "./MyHeader.css";
 function MyHeader() {
   return (
     <header>
