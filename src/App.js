@@ -1,15 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-import MoneyInfo from './Jim(YoungChan)/MoneyInfo';
-import M_View from './Jim(YoungChan)/MoneyView';
-import MoneyView from './Jim(YoungChan)/MoneyView';
+import React from "react";
+import Main from "./Component/Main"
+import ShowMoney from "./Test1/ShowMoney";
+import ShowTrafficRate from "./Test1/ShowTrafficRate";
+import ExcRate from "./Component/Frame/ExcRate";
+
 
 function App() {
   return (
-    <div className="App">
-      <MoneyInfo/>
-      {/* <MoneyView/> */}
-    </div>
+    <>
+      {/* <ExcRate/> */}
+      <Main/>
+      {/* <ShowMoney/> */}
+      {/* <ShowTrafficRate/> */}
+    </>
   );
 }
 

@@ -1,0 +1,8 @@
+.main-wrapper {
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  gap: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 3rem;
+}

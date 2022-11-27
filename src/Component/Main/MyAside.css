@@ -1,0 +1,17 @@
+.aside {
+  display: inline-flex;
+  flex-direction: column;
+  text-align: center;
+  border-style: dotted;
+  border-color: rgb(255, 0, 0);
+  border-radius: 15px;
+}
+
+.aside div {
+  background-color: rgb(197, 224, 180);
+  border-radius: 15px;
+  margin: 10px;
+  width: 200px;
+
+  text-shadow: 1px 1px 1px;
+}

@@ -1,0 +1,42 @@
+/* #root {
+	display: flex;
+}
+
+.excRateConv {
+	width: 30vw;
+	min-width: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 5px;
+}
+
+select, input {
+	width: 200px;
+	height: 50px;
+	font-size: 1.3rem;
+}
+
+select, .operator>input {
+	text-align: center;
+}
+
+input {
+	text-align: right;
+}
+
+.mainCrcN, .excCrcN, .amount_before, .amount_after, .operator {
+	margin: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.excRateGraph {
+	width: 70vw;
+	border: solid 1px;
+	margin: 5px;
+	padding: 10px;
+} */
