@@ -1,6 +1,6 @@
 import{useEffect,useState,useRef} from 'react';
 import{Link} from 'react-router-dom';
-
+import ExcRate from '../Component/Frame/ExcRate';
 
 function ShowMoney(){
 /////// ▼ 기본 설정으로 만들어둔 코드들
@@ -66,13 +66,16 @@ const refDateIn = useRef() ;
       var XmlNode = new DOMParser().parseFromString(xmlString, 'text/xml');
       let dailyMoneyList = xmlToJson(XmlNode).response.body.items.item;
       setMoneyList(
+        
         dailyMoneyList.map((item)=>
-        <div key = {item}>
-          <span>[{item.currSgn}]</span>
-          <span> {item.fxrt}원</span>
-          <span> {item.mtryUtNm}</span>
-        </div>
+        <tr key = {item} style={{border:'1px solid rgba(0,0,0,0.5)'}}>
+          <td >{item.currSgn}</td>
+          <td> {item.fxrt}원</td>
+          <td> {item.mtryUtNm}</td>
+        </tr>
+        
         )
+        
       )
     }catch(err){
       console.log(err);
@@ -98,16 +101,49 @@ const handleChange = (e) => {
 }
 
 
-
 return (
   <>
     <h1>환율 데이터 ({viewDayF}일자)</h1> 
+    <div className='l&R'
+      style={{
+        float:'left',
+        width:'1680px',
+        border:'1px solid rgba(0,0,0,0.5)',
+        height:'1600px'
+      }}>
+    <div className='left' 
+      style={{
+        alignItems: 'center',
+        width:'550px',
+        position:'static'}}>
     <form>
-    <input type="date" name="dateIn" ref={refDateIn} onChange={handleChange}/>
+    <input className='calender' type="date" name="dateIn" ref={refDateIn} onChange={handleChange}
+      style={{alignItems: 'center',
+        marginLeft:'40px',
+        width:'300px',
+        position:'static',
+        textAlign: 'center',
+        fontWeight:'bold'}}/>
     </form>
-    <ul>
-    {moneyList}
-    </ul>
+    <div className='Table' style={{float:'left'}}>
+    <h2 style={{textAlign:'center',margin:'0px'}}>상세 데이터</h2>
+    <table className='MoneyTable' style={{
+      backgroundColor:"#F4F4F4",
+      border:'1px solid rgba(0,0,0,0.05)',
+      marginLeft:'40px',
+      width:'300px',
+      position:'static',
+      }}>
+      
+      <tr style={{fontWeight:'bold'}}><td>약자</td><td>돈</td><td>화폐</td></tr>
+      {moneyList}
+    </table>
+    </div>
+    </div>
+    <div className='right' style={{width:'1000px',position:'absolute ',left:'350px',top:'43px'}}>
+      <ExcRate/>
+    </div>
+    </div>
   </>
 );
 

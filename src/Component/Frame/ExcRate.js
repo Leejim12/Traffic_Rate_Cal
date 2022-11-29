@@ -29,8 +29,9 @@ function ExcRate() {
 
 	return (
 		<>
-			<div className='excRateConv'>
-				환율계산기
+			<div className='excRateConv' style={{width:'1000px',height:'400px'}}>
+				<div className='CalMain' style={{width:'500px',position:'absolute ',left:'0px',top:'10px'}}>
+				<h2 style={{textAlign:'center'}}>환율계산기</h2>
 				<form>
 					<div className='mainCrcN'>
 						{/* 기준 국가 및 통화 선택 */}
@@ -45,20 +46,39 @@ function ExcRate() {
 						<input type='submit' value='계산'/>
 					</div>
 				</form>
-				<div className='excCrcN'>
-					{/* 교환 국가 및 통화 선택 */}
-					<SelectBox options={crcOptions}></SelectBox>
+					<div className='excCrcN'>
+						{/* 교환 국가 및 통화 선택 */}
+						<SelectBox options={crcOptions}></SelectBox>
+					</div>
+					<div className='amount_after'>
+						{/* onChange */}
+						{/* 계산 후 금액 자동 출력 - 단위 표시 */}
+						{/* 계산결과 출력만 하도록 만들기 */}
+						<input type='text' placeholder='자동출력'/>
+					</div>
 				</div>
-				<div className='amount_after'>
-					{/* onChange */}
-					{/* 계산 후 금액 자동 출력 - 단위 표시 */}
-					{/* 계산결과 출력만 하도록 만들기 */}
-					<input type='text' placeholder='자동출력'/>
+				<div className='CalText' style={{width:'500px',position:'absolute ',left:'550px',top:'10px',height:'360px'}}>
+					설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~
+					설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~
+					설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~
+					설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~
+					설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~
+					설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~
+					설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~
+					설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~
+					설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~
+					설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~
+					설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~
+					설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~
+					설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~
+					설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~
+					설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~
+					설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~설명~~				
 				</div>
 			</div>
 			{/* 모바일에서는 아래로 가도록 함수 적용 필요 */}
-			<div className='excRateGraph'>
-				환율그래프 위치
+			<div className='excRateGraph' style={{width:'950px',height:'1000px'}}>
+				<>환율그래프 위치</>
 			</div>
 		</>
 	);

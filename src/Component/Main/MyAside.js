@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./MyAside.css"
 
 function MyAside() {
@@ -5,12 +6,11 @@ function MyAside() {
     <div className="aside-Wrapper">
       <aside className="aside">
         <div>
-          <h3>환율</h3>
+          {/* 이거 */}
+        <Link to={'/sm'} style={{ textDecoration: 'none' }}><h3>환율</h3></Link>
         </div>
         <div>
-          <h3>
-            <a href="index.html">세액조회</a>
-          </h3>
+        <Link to={'/'} style={{ textDecoration: 'none' }}><h3>세액조회</h3></Link>
         </div>
         <div>
           <h3>커뮤니티 게시판</h3>
@@ -19,7 +19,7 @@ function MyAside() {
           <h3>버그/오류신고</h3>
         </div>
         <div>
-          <h3>Contact us</h3>
+        <Link to={'/cu'} style={{ textDecoration: 'none' }}><h3>Contact us</h3></Link>
         </div>
       </aside>
     </div>
